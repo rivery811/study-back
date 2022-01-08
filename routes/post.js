@@ -171,7 +171,7 @@ router.get("/:type/:search", async (req, res) => {
     } else if (type === "contents") {
       sql = `SELECT * FROM tb_board WHERE contents LIKE :search AND state = 'Y'`;
     } else {
-      // 제목 + 내
+      // 제목 + 내용
       sql = `SELECT * FROM tb_board WHERE title LIKE :search OR contents LIKE :search AND state = 'Y'`;
     }
 
