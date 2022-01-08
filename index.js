@@ -9,6 +9,15 @@ const morgan = require("morgan");
 const userRouter = require("./routes/user");
 const postRouter = require("./routes/post");
 const commentRouter = require("./routes/comments");
+const db = require("./models");
+
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log("db 연결 성공");
+  })
+  .catch(console.error);
+
 dotenv.config();
 app.use(morgan("dev"));
 app.use(
